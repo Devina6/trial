@@ -1,6 +1,6 @@
-import ExpenseItem from "./components/ExpenseItem"; 
+import Expenses from './components/Expenses/Expenses'
 
-function App() {
+const App = () => {
   const expenses = [
     {
       id: "e1",
@@ -10,34 +10,31 @@ function App() {
       location: "delhi",
     },
     {
-      id: "e1",
+      id: "e2",
       date: new Date(),
       title: "decoratives",
       amount: "RS 1000",
       location: "delhi",
     },
     {
-      id: "e1",
+      id: "e3",
       date: new Date(),
       title: "electricity bill",
       amount: "RS 8000",
       location: "delhi",
     },
     {
-      id: "e1",
+      id: "e4",
       date: new Date(),
       title: "domestic props",
       amount: "RS 10000",
       location: "delhi",
     }
   ];
+
   return (
-    <div className="App">
-      {
-      expenses.map((expense) => { 
-        return <ExpenseItem title={expense.title} amount={expense.amount} date={expense.date} location={expense.location} />
-})
-}
+    <div>
+      <Expenses items = {expenses} />
     </div>
   );
 }
