@@ -4,24 +4,24 @@ import Card from "../UI/Card";
 import { useState } from "react";
 
 function ExpenseItem(props) {
-    const [edit,setEdit]=useState(props.amount) 
+    const [editedTitle,setTitle]=useState(props.title) 
 
-    const handleCLick=(e)=>{
+    const clickHandler=(e)=>{
         e.target.parentNode.remove()
     }
 
-    const handleEdit=()=>{
-        setEdit("$100")
+    const editHandler=()=>{
+        setTitle("This is the updated title") 
     }
 
     return (
         <Card className='expense-item'>
-            <ExpenseDate date={props.date} />cd
+            <ExpenseDate date={props.date} />
             <div className='expense-item__description'></div>
-            <h5>{props.title}</h5>
-            <div className='expense-item__price'>{edit}</div> 
-            <button onClick={handleCLick}>Delete</button> 
-            <button onClick={handleEdit}>Edit</button>     
+            <h5>{editedTitle}</h5>
+            <div className='expense-item__price'>{`${"Rs."+props.amount}`}</div> 
+            <button onClick={clickHandler}>Delete</button> 
+            <button onClick={editHandler}>Change title</button>     
         </Card>
     )
 }
